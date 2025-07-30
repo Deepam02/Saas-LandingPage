@@ -1,0 +1,335 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@300;400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ADmyBRAND AI Suite Design System - 2025 Modern SaaS Landing Page */
+
+@layer base {
+  :root {
+    /* Core Background & Surface Colors */
+    --background: 240 10% 3.9%;
+    --background-secondary: 240 8% 6%;
+    --background-tertiary: 240 6% 8%;
+    --foreground: 0 0% 98%;
+    --foreground-secondary: 240 5% 84%;
+    --foreground-muted: 240 4% 64%;
+
+    /* Modern Brand Colors - Purple to Blue Gradient Theme */
+    --primary: 270 91% 65%;
+    --primary-dark: 270 91% 55%;
+    --primary-light: 270 91% 75%;
+    --primary-foreground: 0 0% 100%;
+
+    /* Secondary Brand Colors */
+    --secondary: 220 91% 65%;
+    --secondary-dark: 220 91% 55%;
+    --secondary-light: 220 91% 75%;
+    --secondary-foreground: 0 0% 100%;
+
+    /* Accent Colors */
+    --accent: 290 84% 60%;
+    --accent-light: 290 84% 70%;
+    --accent-foreground: 0 0% 100%;
+
+    /* UI Component Colors */
+    --card: 240 10% 6%;
+    --card-hover: 240 8% 8%;
+    --card-foreground: 0 0% 98%;
+
+    --popover: 240 10% 6%;
+    --popover-foreground: 0 0% 98%;
+
+    --muted: 240 6% 10%;
+    --muted-foreground: 240 4% 64%;
+
+    --border: 240 6% 20%;
+    --input: 240 6% 20%;
+    --ring: 270 91% 65%;
+
+    /* Glassmorphism Colors */
+    --glass-background: 240 10% 6% / 0.8;
+    --glass-border: 240 30% 90% / 0.1;
+    --glass-backdrop: 240 10% 3.9% / 0.9;
+
+    /* Status Colors */
+    --success: 142 76% 36%;
+    --success-foreground: 355 100% 97%;
+    --warning: 32 95% 44%;
+    --warning-foreground: 355 100% 97%;
+    --destructive: 0 72% 51%;
+    --destructive-foreground: 0 0% 98%;
+
+    /* Gradients */
+    --gradient-primary: linear-gradient(135deg, hsl(270 91% 65%), hsl(220 91% 65%));
+    --gradient-secondary: linear-gradient(135deg, hsl(290 84% 60%), hsl(270 91% 65%));
+    --gradient-hero: linear-gradient(135deg, hsl(270 91% 65%) 0%, hsl(220 91% 65%) 50%, hsl(290 84% 60%) 100%);
+    --gradient-card: linear-gradient(135deg, hsl(240 10% 6% / 0.9), hsl(240 8% 8% / 0.9));
+    --gradient-border: linear-gradient(135deg, hsl(270 91% 65% / 0.3), hsl(220 91% 65% / 0.3));
+
+    /* Shadows & Effects */
+    --shadow-small: 0 1px 3px hsl(240 50% 2% / 0.2);
+    --shadow-medium: 0 4px 12px hsl(240 50% 2% / 0.3);
+    --shadow-large: 0 8px 32px hsl(240 50% 2% / 0.4);
+    --shadow-glow: 0 0 32px hsl(270 91% 65% / 0.3);
+    --shadow-glow-secondary: 0 0 32px hsl(220 91% 65% / 0.3);
+
+    /* Animation Variables */
+    --animation-fast: 0.15s ease-out;
+    --animation-medium: 0.3s ease-out;
+    --animation-slow: 0.5s ease-out;
+
+    --radius: 12px;
+    --radius-large: 16px;
+    --radius-small: 8px;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-background text-foreground font-sans antialiased;
+    font-family: 'Inter', system-ui, -apple-system, sans-serif;
+    background: linear-gradient(135deg, hsl(240 10% 3.9%) 0%, hsl(240 8% 5%) 50%, hsl(240 10% 3.9%) 100%);
+    min-height: 100vh;
+  }
+
+  /* Typography Scale */
+  .heading-1 {
+    font-family: 'Space Grotesk', system-ui, sans-serif;
+    @apply text-5xl md:text-6xl lg:text-7xl font-bold leading-tight tracking-tight;
+  }
+
+  .heading-2 {
+    font-family: 'Space Grotesk', system-ui, sans-serif;
+    @apply text-3xl md:text-4xl lg:text-5xl font-bold leading-tight tracking-tight;
+  }
+
+  .heading-3 {
+    font-family: 'Space Grotesk', system-ui, sans-serif;
+    @apply text-2xl md:text-3xl font-semibold leading-tight tracking-tight;
+  }
+
+  .heading-4 {
+    font-family: 'Space Grotesk', system-ui, sans-serif;
+    @apply text-xl md:text-2xl font-semibold leading-tight;
+  }
+
+  .body-large {
+    @apply text-lg md:text-xl leading-relaxed;
+  }
+
+  .body-medium {
+    @apply text-base md:text-lg leading-relaxed;
+  }
+
+  .body-small {
+    @apply text-sm md:text-base leading-relaxed;
+  }
+
+  /* Glassmorphism Components */
+  .glass {
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(16px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    @apply rounded-lg;
+  }
+
+  .glass-strong {
+    background: rgba(255, 255, 255, 0.08);
+    backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    @apply rounded-lg;
+  }
+
+  /* Gradient Text */
+  .gradient-text {
+    background: var(--gradient-primary);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  /* Enhanced Gradient Text with Shimmer */
+  .gradient-text-shimmer {
+    background: linear-gradient(
+      90deg,
+      hsl(var(--primary)),
+      hsl(var(--secondary)),
+      hsl(var(--accent)),
+      hsl(var(--primary))
+    );
+    background-size: 400% 100%;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    animation: gradient-shift 3s ease-in-out infinite;
+  }
+
+  /* Interactive Hover Effects */
+  .hover-glow {
+    transition: all 0.3s ease;
+  }
+  
+  .hover-glow:hover {
+    filter: drop-shadow(0 0 20px hsl(var(--primary) / 0.5));
+    transform: scale(1.05);
+  }
+
+  /* Card Hover Animation */
+  .card-hover-effect {
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+  
+  .card-hover-effect:hover {
+    transform: translateY(-8px) scale(1.02);
+    box-shadow: 0 20px 60px -10px hsl(var(--primary) / 0.4);
+  }
+
+  .gradient-text-secondary {
+    background: var(--gradient-secondary);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  /* Hover Effects */
+  .hover-glow {
+    transition: all var(--animation-medium);
+  }
+
+  .hover-glow:hover {
+    box-shadow: var(--shadow-glow);
+    transform: translateY(-2px);
+  }
+
+  .hover-scale {
+    transition: all var(--animation-medium);
+  }
+
+  .hover-scale:hover {
+    transform: scale(1.02);
+  }
+
+  /* Smooth Animations */
+  .animate-fade-in {
+    animation: fadeIn var(--animation-slow) ease-out;
+  }
+
+  .animate-slide-up {
+    animation: slideUp var(--animation-medium) ease-out;
+  }
+
+  .animate-float {
+    animation: float 6s ease-in-out infinite;
+  }
+
+  /* Custom Scrollbar */
+  ::-webkit-scrollbar {
+    width: 8px;
+  }
+
+  ::-webkit-scrollbar-track {
+    background: hsl(var(--background));
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: hsl(var(--primary) / 0.6);
+    border-radius: 4px;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    background: hsl(var(--primary) / 0.8);
+  }
+}
+
+@layer components {
+  /* Button Variants */
+  .btn-primary {
+    background: var(--gradient-primary);
+    @apply text-white font-semibold px-6 py-3 rounded-lg transition-all duration-300 hover:shadow-lg hover:scale-105;
+  }
+
+  .btn-secondary {
+    @apply glass border border-white/20 text-white font-semibold px-6 py-3 rounded-lg transition-all duration-300 hover:border-white/40;
+  }
+
+  .btn-ghost {
+    @apply text-foreground-secondary font-medium px-4 py-2 rounded-lg transition-all duration-300 hover:bg-white/5 hover:text-foreground;
+  }
+
+  /* Card Variants */
+  .card-glass {
+    @apply glass p-6 hover-glow;
+  }
+
+  .card-gradient {
+    background: var(--gradient-card);
+    @apply border border-white/10 rounded-lg p-6 hover-glow;
+  }
+
+  /* Feature Cards */
+  .feature-card {
+    @apply glass p-8 hover-glow hover-scale cursor-pointer;
+  }
+
+  /* Pricing Cards */
+  .pricing-card {
+    @apply glass-strong p-8 hover-glow relative overflow-hidden;
+  }
+
+  .pricing-card-featured {
+    background: var(--gradient-card);
+    @apply border-2 border-primary/30 p-8 hover-glow relative overflow-hidden;
+    box-shadow: var(--shadow-glow);
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+  }
+}
